@@ -1,9 +1,9 @@
 # Data-Structure-Review
 
-Linked Lists
-Binary Trees
-Tries 
-Stacks
-Queues
-Vectors/ ArrayLists
-Hash Tables
+Linked Lists \n
+Binary Trees \n
+Tries \n
+Stacks \n
+Queues \n
+Vectors/ ArrayList \n
+Hash Tables \n
