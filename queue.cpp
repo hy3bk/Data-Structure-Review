@@ -51,6 +51,5 @@ int main() {
 
   cout << a.getSize() << endl; // 0
   cout << a.dequeue() << endl; // ERROR
-
-
+  return 0;
 }
