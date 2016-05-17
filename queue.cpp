@@ -1,55 +1,75 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <stdexcept>
 using namespace std;
 
-//vector implementation with strings
-class queue {
+
+template <class T>
+class Queue {
+private:
+  vector<T> vec;
+  int front;
+  int size;
 public:
-  //constructor
-  queue() {
-    front = 0;
-    size = 0;
-  }
+  void enqueue(T const&);
+  T dequeue();
   int getSize() {
     return size;
   }
-  void enqueue(string x) {
-    vec.push_back(x);
-    size++; 
-  }
-  string dequeue() {
-    int back = vec.size()-1;
-    if(front > back)  
-      return "ERROR";     
-    string temp = vec[front];
-    front++;
-    size--;
-    return temp;
-  }
-  
-private:
-  int front;
-  vector<string> vec;
-  int size;
-  
 };
+
+template <class T>
+void Queue<T>::enqueue(T const& elem) {
+  vec.push_back(elem);
+  size++;
+}
+
+template <class T>
+T Queue<T>::dequeue() {
+  if(size <= 0)
+    throw out_of_range("Queue is empty");
+  
+  string temp = vec[front];
+  front++;
+  size--;
+  return temp;
+  
+}
 
 //driver function
 int main() {
-  queue a;
+  Queue<string> a;
+ 
+  try {  
   a.enqueue("a");
   a.enqueue("b");
-  
+ 
   cout << a.getSize() << endl; // 2
   cout << a.dequeue() << endl; // a
   
   cout << a.getSize() << endl; // 1
   cout << a.dequeue() << endl; // b
 
-  cout << a.getSize() << endl; // 0
-  cout << a.dequeue() << endl; // ERROR
+  a.dequeue(); //throws exception
+  
 
-  cout << a.getSize() << endl; // 0
-  cout << a.dequeue() << endl; // ERROR
-  return 0;
+  }
+  catch (out_of_range outofrange) {
+    cout << outofrange.what() << endl;
+    
+  }
+
+  
+  
+
+  
+
+  
+
+ 
+
+  
+
+
 }
