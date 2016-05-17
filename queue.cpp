@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-//vector implementation
+//vector implementation with strings
 class queue {
 public:
   //constructor
